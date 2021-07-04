@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 63208575}
   - component: {fileID: 63208574}
   - component: {fileID: 63208573}
-  - component: {fileID: 63208572}
   - component: {fileID: 63208576}
+  - component: {fileID: 63208572}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -152,11 +152,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 63208571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1af62b7e0f684e4499be6be1d892b7ba, type: 3}
+  m_Script: {fileID: 11500000, guid: ca4efcd5d51ad9749afed245798db88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _path: {fileID: 1998577547}
-  _speed: 3
+  _speed: 2
 --- !u!95 &63208573
 Animator:
   serializedVersion: 3
@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 1001728373}
   - component: {fileID: 1001728375}
   - component: {fileID: 1001728374}
+  - component: {fileID: 1001728376}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -444,6 +445,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.040003568, y: -0.029015258}
   m_Size: {x: 0.13999298, y: 0.27113214}
   m_Direction: 0
+--- !u!114 &1001728376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001728369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583b3d28e1370ee44ac2caf6b56b9c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1295092171
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40d793c31197dd4293292b40e9aec03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leftMaxPosition: -9
+  _rightMaxposition: 9
+  _speed: 2
 --- !u!114 &1598037200
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class CoinSpawner : MonoBehaviour
     [SerializeField] private GameObject _prefab;
     [SerializeField] private Transform _spawnPoint;
 
-    private float _spawnCoolDown = 2 ;
+    private float _spawnCoolDown = 2;
     private float _elapsedTime = 0;
 
     private void Update()

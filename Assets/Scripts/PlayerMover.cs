@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 
@@ -12,26 +11,18 @@ public class PlayerMover : MonoBehaviour
 
     private SpriteRenderer _sprite;
     private Rigidbody2D _rigitBody;
-    private Animator _animator;
     private bool _isGrounded;
 
     private void Start()
     {
         _rigitBody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.TryGetComponent(out Ground ground))
             _isGrounded = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out EnemyMover enemyMover))
-            _animator.SetTrigger("Hit");
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -44,15 +35,13 @@ public class PlayerMover : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            _animator.SetBool("IsWalk", true);
-            transform.Translate(_speed * Time.deltaTime, 0, 0);
+            transform.Translate(Vector3.right * Time.deltaTime * _speed);
             _sprite.flipX = false;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            _animator.SetBool("IsWalk", true);
-            transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
+            transform.Translate(Vector3.left * Time.deltaTime * _speed);
             _sprite.flipX = true;
         }
 
@@ -60,13 +49,5 @@ public class PlayerMover : MonoBehaviour
         {
             _rigitBody.AddForce(Vector2.up * _jumpForse, ForceMode2D.Impulse);
         }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            _animator.SetTrigger("Attack");
-        }
-
-        if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A))
-            _animator.SetBool("IsWalk", false);
     }
 }
