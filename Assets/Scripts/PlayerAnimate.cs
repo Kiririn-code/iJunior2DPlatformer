@@ -6,7 +6,7 @@ public class PlayerAnimate : MonoBehaviour
 {
     private Animator _animator;
 
-    void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
     }
@@ -17,7 +17,7 @@ public class PlayerAnimate : MonoBehaviour
             _animator.SetTrigger("Hit");
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.D))
             _animator.SetBool("IsWalk", true);
