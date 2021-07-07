@@ -34,20 +34,16 @@ public class PlayerMover : MonoBehaviour
     private void Update()
     {
         if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * _speed);
-            _sprite.flipX = false;
-        }
-
+            MakeMovement(false);
         if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * _speed);
-            _sprite.flipX = true;
-        }
-
+            MakeMovement(true);
         if (Input.GetKey(KeyCode.W) && _isGrounded)
-        {
             _rigitBody.AddForce(Vector2.up * _jumpForse, ForceMode2D.Impulse);
-        }
+    }
+
+    private void MakeMovement(bool isSideLeft)
+    {
+        transform.Translate((isSideLeft? Vector3.left: Vector3.right) * Time.deltaTime * _speed);
+        _sprite.flipX = isSideLeft;
     }
 }
